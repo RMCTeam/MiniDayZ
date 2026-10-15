@@ -1,8 +1,9 @@
 ﻿{
-	"version": 1644057359,
+	"version": 1644057360,
 	"fileList": [
 		"data.js",
 		"c2runtime.js",
+		"pc-mode.js",
 		"jquery-3.4.1.min.js",
 		"offlineClient.js",
 		"images/gui_panel-sheet0.png",
