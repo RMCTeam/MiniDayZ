@@ -14,15 +14,16 @@ ___
 
 Additions on top of upstream, targeting the **Plus 1.2** build in [`docs/`](docs):
 
-* **PC Mode** – keyboard + mouse support (`docs/pc-mode.js`). The original game is
-  touch-first, so this overlay translates keyboard/mouse input into the same
-  pointer events the engine already handles. No game data is modified.
-  * `W A S D` / arrows – move (virtual stick)
-  * hold **left mouse** – walk toward the cursor
-  * `Space` / `J` – attack / use · `F` – interact
-  * `E` / `I` / `Tab` – inventory · `R` – reload · `M` – map · `C` – craft · `Esc` – menu
-  * `H` – toggle help · `F1` – enable/disable PC Mode
-  * Rebind anything from the console via `window.PCMODE_CONFIG`.
+* **PC Mode** – keyboard support (`docs/pc-mode.js`). The original game is
+  touch-first, so this overlay translates keyboard input into the same
+  pointer events the engine already handles (mouse input always reaches
+  the game natively, untouched). No game data is modified.
+  * `W A S D` / arrows – move (virtual stick, gameplay only)
+  * `Space` / `J` – attack (interact when unarmed) · `F` – interact
+  * `E` / `I` / `Tab` – inventory · `R` – reload · `Q` – switch weapon
+  * `F1` – enable/disable PC Mode · `F2` – PC settings (button calibration)
+  * Shortcut taps use the game's own live HUD positions, so they stay
+    exact on any window size. Rebind keys via `window.PCMODE_CONFIG`.
   * Tip: set the in-game control mode to **By tap** for the smoothest feel.
 * **Loading screen fix** – the canvas is pinned to the viewport and re-fitted on
   load/resize, and the page background matches the MiniDayZ loading sky so the
