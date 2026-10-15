@@ -423,7 +423,12 @@
 
 	function onBlur() {
 		pressed = Object.create(null);
-		if (down) { down = false; lastMovePos = null; }
+		if (down) {
+			down = false;
+			lastMovePos = null;
+			var c = center();
+			dispatch('up', c[0], c[1]);
+		}
 	}
 
 	function onCtx(e) { if (cfg.enabled) e.preventDefault(); }
@@ -490,7 +495,12 @@
 		document.body.appendChild(el);
 		el.querySelector('#pcs-enabled').addEventListener('change', function (ev) {
 			cfg.enabled = ev.target.checked;
-			if (!cfg.enabled && down) { down = false; lastMovePos = null; }
+			if (!cfg.enabled && down) {
+				down = false;
+				lastMovePos = null;
+				var c = center();
+				dispatch('up', c[0], c[1]);
+			}
 			persist(); syncBadge();
 		});
 		el.querySelector('#pcs-stick').addEventListener('change', function (ev) {
@@ -518,7 +528,12 @@
 
 	function toggleEnabled() {
 		cfg.enabled = !cfg.enabled;
-		if (!cfg.enabled && down) { down = false; lastMovePos = null; }
+		if (!cfg.enabled && down) {
+			down = false;
+			lastMovePos = null;
+			var c = center();
+			dispatch('up', c[0], c[1]);
+		}
 		persist(); syncBadge();
 	}
 
